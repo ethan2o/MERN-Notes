@@ -6,12 +6,13 @@ import rateLimiter from "./middleware/rateLimiter.js";
 const app = express();
 const PORT = config.port;
 
-connectDB();
-
 app.use(express.json());
 app.use(rateLimiter);
 app.use("/api/notes", notesRoutes);
 
-app.listen(PORT, () => {
-    console.log("Server started on port", PORT);
+// wait for database to properly connect before listening
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("Server started on port", PORT);
+    });
 });
