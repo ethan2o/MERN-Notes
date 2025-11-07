@@ -3,11 +3,12 @@ import api from '../lib/axios'
 import NavBar from '../components/NavBar';
 import RateLimitedUI from '../components/RateLimitedUI';
 import NoteCard from '../components/NoteCard';
+import toast from "react-hot-toast"
 
 const HomePage = () => {
   const [isRateLimited, setIsRateLimited] = useState(false);
   const [notes, setNotes] = useState([])
-  const [loading, setLoading] =useState(true)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchNotes = async () => {
