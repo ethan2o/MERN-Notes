@@ -14,16 +14,16 @@ app.use(express.json());
 app.use(rateLimiter);
 if (process.env.NODE_ENV !== "production") {
         app.use(
-        cors({
-        origin: "http://localhost:5173",
-    }));
+            cors({
+                origin: "http://localhost:5173",
+            })
+        );
 }
 
 app.use("/api/notes", notesRoutes);
 
-app.use(express.static(path.join(__dirname, "../frontend/dist")))
-
 if (process.env.NODE_ENV === "production") {
+        app.use(express.static(path.join(__dirname, "../frontend/dist")))
         app.get("*", (req, res) => {
         res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"))
     })
