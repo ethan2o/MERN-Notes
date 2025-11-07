@@ -6,7 +6,7 @@ export const config = {
   db: {
     uri: process.env.DATABASE_URI,
   },
-  port: process.env.PORT || 5001,
+  port: process.env.PORT
 };
 
 export const connectDB = async () => {
