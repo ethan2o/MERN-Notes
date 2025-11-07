@@ -2,7 +2,7 @@ import Note from "../models/Notes.js"
 
 export async function getAllNotes(req, res) {
     try {
-        const notes = await Note.find();
+        const notes = await Note.find().sort({ updatedAt: -1 }); // sorts notes by newest first
         res.status(200).json(notes);
     } catch (error) {
         console.log("Error in getAllNotes method", error);
@@ -29,6 +29,27 @@ export async function createNote(req, res) {
             }
         )
     };
+};
+
+export async function getNote(req, res) {
+    try {
+        const fetchedNote = await Note.findById(
+            req.params.id,
+        )
+        if (!fetchedNote) return res.status(404).json(
+            {
+                message: "Note not found"
+            }
+        );
+        res.status(200).json({fetchedNote});
+    } catch (error) {
+        console.log("Error in getNote method", error);
+        res.status(500).json(
+            {
+                message: "Internal server error."
+            }
+        )
+    }
 };
 
 export async function updateNote(req, res) {
