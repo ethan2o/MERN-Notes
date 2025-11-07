@@ -7,6 +7,7 @@ const PORT = config.port;
 
 connectDB();
 
+app.use(express.json())
 app.use("/api/notes", notesRoutes)
 
 app.listen(PORT, () => {
