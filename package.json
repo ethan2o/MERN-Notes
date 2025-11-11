@@ -1,0 +1,22 @@
+{
+  "name": "mern-notes",
+  "version": "1.0.0",
+  "description": "Notes app using the MERN stack",
+  "main": "index.js",
+  "scripts": {
+        "build": "npm install --prefix backend && npm install --include=dev --prefix frontend && npm run build --prefix frontend",
+    "start": "npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethan2o/MERN-Notes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ethan2o/MERN-Notes/issues"
+  },
+  "homepage": "https://github.com/ethan2o/MERN-Notes#readme"
+}
