@@ -4,7 +4,7 @@ Notes app using the MERN stack
 https://mern-notes-7w9b.onrender.com
 
 ## .env
-For local use, this application requires the following fields present a `.env` file located in the [root](./) of this repository.
+For local use, this application requires the following fields present a `.env` file located in the [backend](./backend/) of this repository.
 
 The `.env` file requires the following fields:
 
